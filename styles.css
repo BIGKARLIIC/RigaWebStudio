@@ -220,11 +220,11 @@ main,
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.96fr);
-  gap: 2rem;
-  align-items: end;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+  gap: 2.4rem;
+  align-items: start;
   min-height: calc(100vh - 84px);
-  padding: 3.5rem 0 2rem;
+  padding: 4.5rem 0 2.5rem;
 }
 
 .eyebrow,
@@ -240,7 +240,7 @@ main,
   display: grid;
   gap: 1.25rem;
   align-self: start;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 
 .hero h1,
@@ -256,8 +256,8 @@ main,
 }
 
 .hero h1 {
-  max-width: 7ch;
-  font-size: clamp(4.6rem, 11vw, 9.6rem);
+  max-width: 6.5ch;
+  font-size: clamp(4rem, 8.6vw, 7.4rem);
   text-wrap: balance;
 }
 
@@ -275,18 +275,23 @@ main,
   line-height: 1.75;
 }
 
+.hero-lede {
+  max-width: 34ch;
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+}
+
 .hero-actions {
   display: grid;
   justify-items: start;
   gap: 0.85rem;
-  margin-top: 0.4rem;
+  margin-top: 0.8rem;
 }
 
 .hero-ledger {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
-  margin-top: 1.8rem;
+  margin-top: 2.1rem;
 }
 
 .hero-ledger article {
@@ -304,12 +309,12 @@ main,
 
 .hero-stage {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1.1fr 0.95fr 0.85fr;
   gap: 1rem;
   grid-template-areas:
-    "large large logo contact"
-    "large large stack stack"
-    "colors colors stack stack";
+    "large large logo"
+    "large large contact"
+    "stack colors contact";
 }
 
 .stage-panel,
@@ -327,7 +332,8 @@ main,
 }
 
 .stage-panel {
-  padding: 1.25rem;
+  padding: 1.35rem;
+  min-width: 0;
 }
 
 .stage-panel:hover,
@@ -341,7 +347,7 @@ main,
 
 .stage-panel-large {
   grid-area: large;
-  min-height: 330px;
+  min-height: 360px;
   background:
     linear-gradient(135deg, rgba(94, 151, 255, 0.1), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
@@ -349,10 +355,10 @@ main,
 
 .stage-panel-large h2 {
   margin: 0.55rem 0 0.8rem;
-  max-width: 10ch;
+  max-width: 8.5ch;
   font-family: "Syne", sans-serif;
-  font-size: clamp(2.6rem, 4.8vw, 4.2rem);
-  line-height: 0.95;
+  font-size: clamp(2.25rem, 4vw, 3.4rem);
+  line-height: 0.92;
   letter-spacing: -0.06em;
 }
 
@@ -360,7 +366,7 @@ main,
   grid-area: logo;
   display: grid;
   place-items: center;
-  min-height: 170px;
+  min-height: 156px;
   background:
     radial-gradient(circle at center, rgba(255, 255, 255, 0.12), transparent 44%),
     rgba(255, 255, 255, 0.03);
@@ -390,12 +396,14 @@ main,
   display: grid;
   gap: 0.5rem;
   align-content: start;
+  min-height: 100%;
 }
 
 .stage-panel-contact a,
 .presence-card a,
 .contact-action strong {
   font-size: 1.04rem;
+  overflow-wrap: anywhere;
 }
 
 .stage-panel-colors {
@@ -467,7 +475,7 @@ main,
 
 .section {
   position: relative;
-  padding: 8rem 0;
+  padding: 7rem 0;
 }
 
 .section::before {
@@ -747,6 +755,7 @@ main,
 
   .hero {
     min-height: auto;
+    padding-top: 3rem;
   }
 
   .hero-stage {
@@ -815,6 +824,10 @@ main,
       "colors";
   }
 
+  .hero-copy {
+    padding-top: 1rem;
+  }
+
   .system-step {
     grid-template-columns: 52px minmax(0, 1fr);
   }
@@ -824,7 +837,7 @@ main,
   }
 
   .section {
-    padding: 5.5rem 0;
+    padding: 5rem 0;
   }
 
   .site-footer {

@@ -45,6 +45,14 @@ const contactCards = [
   ["Phone", "+371 28 780 935", "tel:+37128780935"]
 ];
 
+const signalItems = [
+  "Business websites",
+  "Landing pages",
+  "Modern UI systems",
+  "Contact-first structure",
+  "Responsive builds"
+];
+
 function App() {
   const rootRef = useRef(null);
 
@@ -211,19 +219,8 @@ function App() {
 
         <section className="signal-strip">
           <div className="signal-track">
-            {[
-              "Business websites",
-              "Landing pages",
-              "Modern UI systems",
-              "Contact-first structure",
-              "Responsive builds",
-              "Business websites",
-              "Landing pages",
-              "Modern UI systems",
-              "Contact-first structure",
-              "Responsive builds"
-            ].map((item) => (
-              <span key={item + Math.random()}>{item}</span>
+            {[...signalItems, ...signalItems].map((item, index) => (
+              <span key={`${item}-${index}`}>{item}</span>
             ))}
           </div>
         </section>
