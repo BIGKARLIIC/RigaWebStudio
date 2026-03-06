@@ -1,55 +1,8 @@
 const counters = document.querySelectorAll("[data-count]");
 const tiltCards = document.querySelectorAll(".tilt-card");
 const magneticItems = document.querySelectorAll(".magnetic");
-const heroStage = document.getElementById("hero-stage");
-const heroBanner = document.getElementById("hero-banner");
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-if (!prefersReducedMotion && heroStage && heroBanner) {
-  const current = { x: 0, y: 0 };
-  const target = { x: 0, y: 0 };
-  let rafId = 0;
-
-  const animateHero = () => {
-    current.x += (target.x - current.x) * 0.08;
-    current.y += (target.y - current.y) * 0.08;
-
-    heroBanner.style.transform =
-      `perspective(1400px) rotateX(${current.y}deg) rotateY(${current.x}deg) scale(1.01)`;
-
-    if (
-      Math.abs(target.x - current.x) > 0.01 ||
-      Math.abs(target.y - current.y) > 0.01
-    ) {
-      rafId = requestAnimationFrame(animateHero);
-    } else {
-      rafId = 0;
-    }
-  };
-
-  const startAnimation = () => {
-    if (!rafId) {
-      rafId = requestAnimationFrame(animateHero);
-    }
-  };
-
-  heroStage.addEventListener("pointermove", (event) => {
-    const rect = heroStage.getBoundingClientRect();
-    const offsetX = (event.clientX - rect.left) / rect.width - 0.5;
-    const offsetY = (event.clientY - rect.top) / rect.height - 0.5;
-
-    target.x = offsetX * 5;
-    target.y = offsetY * -4;
-    startAnimation();
-  });
-
-  heroStage.addEventListener("pointerleave", () => {
-    target.x = 0;
-    target.y = 0;
-    startAnimation();
-  });
-}
 
 const countObserver = new IntersectionObserver(
   (entries, observer) => {
