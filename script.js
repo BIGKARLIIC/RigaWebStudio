@@ -1,8 +1,32 @@
 const counters = document.querySelectorAll("[data-count]");
 const tiltCards = document.querySelectorAll(".tilt-card");
 const magneticItems = document.querySelectorAll(".magnetic");
+const reveals = document.querySelectorAll(".reveal");
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const revealObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  },
+  { threshold: 0.18 }
+);
+
+reveals.forEach((item) => {
+  if (prefersReducedMotion) {
+    item.classList.add("is-visible");
+    return;
+  }
+
+  revealObserver.observe(item);
+});
 
 const countObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -32,7 +56,7 @@ const countObserver = new IntersectionObserver(
       observer.unobserve(element);
     });
   },
-  { threshold: 0.65 }
+  { threshold: 0.55 }
 );
 
 counters.forEach((counter) => countObserver.observe(counter));
@@ -43,17 +67,19 @@ tiltCards.forEach((card) => {
   }
 
   const reset = () => {
-    card.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)";
+    card.style.transform =
+      "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0)";
   };
 
   card.addEventListener("pointermove", (event) => {
     const rect = card.getBoundingClientRect();
     const offsetX = (event.clientX - rect.left) / rect.width;
     const offsetY = (event.clientY - rect.top) / rect.height;
-    const rotateY = (offsetX - 0.5) * 10;
-    const rotateX = (0.5 - offsetY) * 10;
+    const rotateY = (offsetX - 0.5) * 8;
+    const rotateX = (0.5 - offsetY) * 8;
 
-    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    card.style.transform =
+      `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
   });
 
   card.addEventListener("pointerleave", reset);
@@ -70,7 +96,7 @@ magneticItems.forEach((item) => {
     const x = event.clientX - rect.left - rect.width / 2;
     const y = event.clientY - rect.top - rect.height / 2;
 
-    item.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+    item.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px) rotate(-1deg)`;
   });
 
   item.addEventListener("pointerleave", () => {
