@@ -75,11 +75,11 @@ tiltCards.forEach((card) => {
     const rect = card.getBoundingClientRect();
     const offsetX = (event.clientX - rect.left) / rect.width;
     const offsetY = (event.clientY - rect.top) / rect.height;
-    const rotateY = (offsetX - 0.5) * 8;
-    const rotateX = (0.5 - offsetY) * 8;
+    const rotateY = (offsetX - 0.5) * 7;
+    const rotateX = (0.5 - offsetY) * 7;
 
     card.style.transform =
-      `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
   });
 
   card.addEventListener("pointerleave", reset);

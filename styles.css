@@ -1,18 +1,19 @@
 :root {
-  --bg: #060606;
-  --bg-deep: #0f1012;
-  --panel: rgba(255, 255, 255, 0.05);
-  --panel-strong: rgba(255, 255, 255, 0.09);
-  --line: rgba(255, 255, 255, 0.12);
-  --line-strong: rgba(219, 255, 0, 0.45);
-  --text: #f5f5ef;
-  --muted: rgba(245, 245, 239, 0.68);
-  --accent: #dbff00;
-  --accent-soft: rgba(219, 255, 0, 0.12);
+  --bg: #060708;
+  --bg-soft: #101214;
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-strong: rgba(255, 255, 255, 0.095);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #f6f5ef;
+  --muted: rgba(246, 245, 239, 0.68);
+  --blue: #5e97ff;
+  --green: #6dd8a7;
+  --yellow: #ffd55f;
+  --red: #ff826f;
   --radius-xl: 36px;
   --radius-lg: 26px;
   --radius-md: 18px;
-  --shadow: 0 24px 120px rgba(0, 0, 0, 0.45);
+  --shadow: 0 30px 120px rgba(0, 0, 0, 0.45);
   --max: 1280px;
 }
 
@@ -30,9 +31,9 @@ body {
   color: var(--text);
   font-family: "Manrope", sans-serif;
   background:
-    radial-gradient(circle at 14% 8%, rgba(219, 255, 0, 0.12), transparent 24%),
-    radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.08), transparent 18%),
-    linear-gradient(180deg, #050505 0%, #08090b 42%, #101216 100%);
+    radial-gradient(circle at 14% 10%, rgba(94, 151, 255, 0.12), transparent 22%),
+    radial-gradient(circle at 82% 14%, rgba(109, 216, 167, 0.1), transparent 18%),
+    linear-gradient(180deg, #050506 0%, #090b0d 44%, #101316 100%);
   overflow-x: hidden;
 }
 
@@ -59,26 +60,28 @@ span {
 }
 
 .noise,
-.page-glow {
+.ambient {
   position: fixed;
   inset: 0;
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
 }
 
 .noise {
-  opacity: 0.08;
+  opacity: 0.07;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 96px 96px;
-  mask-image: radial-gradient(circle at center, black 44%, transparent 100%);
+  mask-image: radial-gradient(circle at center, black 46%, transparent 100%);
 }
 
-.page-glow {
-  background:
-    radial-gradient(circle at 80% 12%, rgba(219, 255, 0, 0.07), transparent 18%),
-    radial-gradient(circle at 18% 72%, rgba(255, 255, 255, 0.05), transparent 20%);
+.ambient-left {
+  background: radial-gradient(circle at 12% 18%, rgba(94, 151, 255, 0.09), transparent 22%);
+}
+
+.ambient-right {
+  background: radial-gradient(circle at 84% 10%, rgba(109, 216, 167, 0.08), transparent 18%);
 }
 
 .site-header,
@@ -92,8 +95,8 @@ main,
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(20px);
-  background: rgba(6, 6, 6, 0.55);
+  backdrop-filter: blur(22px);
+  background: rgba(6, 7, 8, 0.56);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -108,9 +111,9 @@ main,
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.85rem;
   font-family: "Syne", sans-serif;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.04em;
 }
@@ -135,20 +138,20 @@ main,
 }
 
 .nav-links a,
+.nav-cta,
 .button,
-.nav-chip,
-.service-panel,
-.offer-card,
-.contact-panel,
-.bento-card,
-.flow-step {
+.stage-panel,
+.service-card,
+.presence-card,
+.contact-action,
+.system-step {
   transition:
     transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 260ms ease,
     border-color 260ms ease,
-    color 260ms ease,
+    background-color 260ms ease,
+    box-shadow 260ms ease,
     border-radius 260ms ease,
-    box-shadow 260ms ease;
+    color 260ms ease;
 }
 
 .nav-links a {
@@ -161,27 +164,29 @@ main,
   color: var(--text);
 }
 
-.nav-chip,
+.nav-cta,
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0.9rem 1.25rem;
+  padding: 0.92rem 1.25rem;
   border-radius: 999px;
-  border: 1px solid rgba(219, 255, 0, 0.26);
-  background: linear-gradient(180deg, rgba(219, 255, 0, 0.18), rgba(219, 255, 0, 0.08));
-  font-weight: 700;
-  color: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08)),
+    linear-gradient(90deg, rgba(94, 151, 255, 0.12), rgba(109, 216, 167, 0.12));
+  color: #050607;
+  font-weight: 800;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+.nav-cta:hover,
 .button:hover,
-.nav-chip:hover,
-.button:focus-visible,
-.nav-chip:focus-visible {
+.nav-cta:focus-visible,
+.button:focus-visible {
   transform: translateY(-3px) rotate(-1deg);
-  border-radius: 24px;
+  border-radius: 26px;
 }
 
 .text-link {
@@ -190,9 +195,9 @@ main,
   padding-bottom: 0.2rem;
   color: var(--muted);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
 }
 
 .text-link::after {
@@ -202,8 +207,8 @@ main,
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: var(--accent);
-  transform: scaleX(0.35);
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  transform: scaleX(0.4);
   transform-origin: left center;
   transition: transform 220ms ease;
 }
@@ -215,7 +220,7 @@ main,
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.95fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.96fr);
   gap: 2rem;
   align-items: end;
   min-height: calc(100vh - 84px);
@@ -223,26 +228,25 @@ main,
 }
 
 .eyebrow,
-.card-tag,
-.label {
-  color: rgba(245, 245, 239, 0.72);
+.card-label {
+  color: rgba(246, 245, 239, 0.72);
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.73rem;
+  font-size: 0.74rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .hero-copy {
   display: grid;
-  gap: 1.2rem;
+  gap: 1.25rem;
   align-self: start;
   padding-top: 1rem;
 }
 
 .hero h1,
-.section-lead h2,
-.flow-intro h2,
-.offer-main h2,
+.section-copy h2,
+.system-copy h2,
+.presence-intro h2,
 .contact-copy h2 {
   margin: 0;
   font-family: "Syne", sans-serif;
@@ -253,20 +257,19 @@ main,
 
 .hero h1 {
   max-width: 7ch;
-  font-size: clamp(4.8rem, 11vw, 9.8rem);
+  font-size: clamp(4.6rem, 11vw, 9.6rem);
   text-wrap: balance;
 }
 
 .hero-lede,
-.section-lead p,
-.flow-intro p,
-.offer-main p,
+.section-copy p,
+.service-card p,
+.service-quote p,
+.system-step p,
+.presence-intro p,
+.presence-card p,
 .contact-copy p,
-.service-panel p,
-.offer-card li,
-.contact-panel p,
-.bento-card p,
-.flow-step p,
+.stage-panel p,
 .site-footer p {
   color: var(--muted);
   line-height: 1.75;
@@ -276,22 +279,22 @@ main,
   display: grid;
   justify-items: start;
   gap: 0.85rem;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
 }
 
-.hero-inline {
+.hero-ledger {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
-  margin-top: 2rem;
+  margin-top: 1.8rem;
 }
 
-.hero-metric {
-  padding-top: 0.9rem;
+.hero-ledger article {
+  padding-top: 0.95rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.hero-metric strong {
+.hero-ledger strong {
   display: block;
   margin-bottom: 0.35rem;
   font-family: "Syne", sans-serif;
@@ -299,118 +302,140 @@ main,
   letter-spacing: -0.06em;
 }
 
-.hero-bento {
+.hero-stage {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
   grid-template-areas:
-    "manifesto manifesto contact logo"
-    "manifesto manifesto categories categories"
-    "note presence presence categories";
+    "large large logo contact"
+    "large large stack stack"
+    "colors colors stack stack";
 }
 
-.bento-card,
-.service-panel,
-.flow-step,
-.offer-card,
-.contact-panel,
-.contact-panel-wide {
+.stage-panel,
+.service-card,
+.presence-card,
+.contact-action,
+.system-step {
   border: 1px solid var(--line);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-    rgba(255, 255, 255, 0.02);
   border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.02);
   box-shadow: var(--shadow);
   backdrop-filter: blur(22px);
 }
 
-.bento-card {
+.stage-panel {
   padding: 1.25rem;
-  overflow: hidden;
 }
 
-.bento-card:hover,
-.service-panel:hover,
-.offer-card:hover,
-.contact-panel:hover,
-.flow-step:hover {
+.stage-panel:hover,
+.service-card:hover,
+.presence-card:hover,
+.contact-action:hover,
+.system-step:hover {
   transform: translateY(-6px) rotate(-0.6deg);
-  border-color: rgba(219, 255, 0, 0.26);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
-.bento-manifesto {
-  grid-area: manifesto;
+.stage-panel-large {
+  grid-area: large;
   min-height: 330px;
   background:
-    radial-gradient(circle at top right, rgba(219, 255, 0, 0.14), transparent 24%),
+    linear-gradient(135deg, rgba(94, 151, 255, 0.1), transparent 28%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
 }
 
-.bento-manifesto h2 {
-  margin: 0.55rem 0 0.7rem;
-  max-width: 9ch;
+.stage-panel-large h2 {
+  margin: 0.55rem 0 0.8rem;
+  max-width: 10ch;
   font-family: "Syne", sans-serif;
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
-  line-height: 0.94;
+  font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+  line-height: 0.95;
   letter-spacing: -0.06em;
 }
 
-.bento-contact {
-  grid-area: contact;
-  display: grid;
-  align-content: start;
-  gap: 0.5rem;
-}
-
-.bento-contact a,
-.contact-panel a {
-  font-size: 1.04rem;
-}
-
-.bento-categories {
-  grid-area: categories;
-  display: grid;
-  align-content: start;
-  gap: 0.55rem;
-}
-
-.bento-logo {
+.stage-panel-logo {
   grid-area: logo;
   display: grid;
   place-items: center;
-  min-height: 100%;
+  min-height: 170px;
   background:
-    radial-gradient(circle at center, rgba(219, 255, 0, 0.14), transparent 45%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.12), transparent 44%),
     rgba(255, 255, 255, 0.03);
 }
 
-.bento-logo img {
-  width: clamp(72px, 8vw, 110px);
+.stage-panel-logo img {
+  width: clamp(72px, 8vw, 108px);
   aspect-ratio: 1;
 }
 
-.bento-presence {
-  grid-area: presence;
+.stage-panel-stack {
+  grid-area: stack;
+}
+
+.stage-panel-stack ul {
+  margin: 0.9rem 0 0;
+  padding-left: 1rem;
+  color: var(--text);
+}
+
+.stage-panel-stack li + li {
+  margin-top: 0.45rem;
+}
+
+.stage-panel-contact {
+  grid-area: contact;
   display: grid;
-  gap: 0.35rem;
+  gap: 0.5rem;
+  align-content: start;
 }
 
-.bento-note {
-  grid-area: note;
+.stage-panel-contact a,
+.presence-card a,
+.contact-action strong {
+  font-size: 1.04rem;
 }
 
-.bento-note h3,
-.service-panel h3,
-.flow-step h3,
-.offer-card h3,
-.contact-panel-wide h3 {
-  margin: 0.45rem 0 0.7rem;
-  font-family: "Syne", sans-serif;
-  font-size: 1.45rem;
-  letter-spacing: -0.05em;
+.stage-panel-colors {
+  grid-area: colors;
 }
 
-.signal-band {
+.accent-row {
+  display: flex;
+  gap: 0.55rem;
+  margin: 0.9rem 0 0.8rem;
+}
+
+.accent {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  box-shadow: 0 0 28px currentColor;
+}
+
+.blue {
+  color: var(--blue);
+  background: var(--blue);
+}
+
+.green {
+  color: var(--green);
+  background: var(--green);
+}
+
+.yellow {
+  color: var(--yellow);
+  background: var(--yellow);
+}
+
+.red {
+  color: var(--red);
+  background: var(--red);
+}
+
+.signal-strip {
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -422,16 +447,18 @@ main,
   gap: 1.5rem;
   width: max-content;
   padding: 1rem 0;
-  animation: marquee 28s linear infinite;
+  animation: marquee 26s linear infinite;
 }
 
 .signal-track span {
   white-space: nowrap;
   padding: 0.55rem 0.8rem;
   border-radius: 999px;
-  border: 1px solid rgba(219, 255, 0, 0.18);
-  background: rgba(219, 255, 0, 0.06);
-  color: #ebf2c1;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(90deg, rgba(94, 151, 255, 0.08), rgba(109, 216, 167, 0.08)),
+    rgba(255, 255, 255, 0.03);
+  color: #eff3f7;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
@@ -443,10 +470,7 @@ main,
   padding: 8rem 0;
 }
 
-.section-dark::before,
-.section-flow::before,
-.section-contrast::before,
-.section-contact::before {
+.section::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -454,192 +478,218 @@ main,
   pointer-events: none;
 }
 
-.section-dark::before {
+.section-services::before {
   background:
     linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02) 18%, transparent 100%);
 }
 
-.section-flow::before {
+.section-system::before {
   background:
-    radial-gradient(circle at 12% 20%, rgba(219, 255, 0, 0.08), transparent 20%),
-    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+    radial-gradient(circle at 18% 16%, rgba(94, 151, 255, 0.07), transparent 18%),
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02) 48%, transparent 100%);
 }
 
-.section-contrast::before {
+.section-presence::before {
   background:
-    linear-gradient(90deg, rgba(219, 255, 0, 0.05), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.04));
+    linear-gradient(90deg, rgba(109, 216, 167, 0.05), transparent 22%, transparent 78%, rgba(94, 151, 255, 0.05));
 }
 
 .section-contact::before {
   background:
-    radial-gradient(circle at 82% 18%, rgba(219, 255, 0, 0.08), transparent 18%);
+    radial-gradient(circle at 82% 20%, rgba(255, 213, 95, 0.07), transparent 18%);
 }
 
-.services-wrap,
-.flow-grid,
-.offer-grid,
-.contact-grid {
+.services-layout,
+.system-layout,
+.presence-layout,
+.contact-layout {
   position: relative;
   z-index: 1;
 }
 
-.section-lead,
-.flow-intro,
-.offer-main,
+.services-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.74fr) minmax(0, 1.26fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.section-copy,
+.system-copy,
+.presence-intro,
 .contact-copy {
   display: grid;
   gap: 1rem;
 }
 
-.section-lead h2,
-.flow-intro h2,
-.offer-main h2,
+.section-copy h2,
+.system-copy h2,
+.presence-intro h2,
 .contact-copy h2 {
   max-width: 8ch;
-  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
 }
 
-.services-wrap {
-  display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-  gap: 2rem;
-  align-items: start;
-}
-
-.services-bento {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.service-panel {
+.service-card {
   padding: 1.35rem;
 }
 
-.service-panel span {
+.service-card span {
   display: inline-block;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.55rem;
+  color: var(--blue);
   font-family: "IBM Plex Mono", monospace;
-  color: var(--accent);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
 }
 
-.service-panel-large {
+.service-card h3,
+.service-quote p,
+.system-step h3,
+.presence-card h3 {
+  margin: 0 0 0.7rem;
+  font-family: "Syne", sans-serif;
+  letter-spacing: -0.05em;
+}
+
+.service-card h3,
+.system-step h3,
+.presence-card h3 {
+  font-size: 1.45rem;
+}
+
+.service-card-wide {
   grid-column: span 3;
-  min-height: 290px;
+  min-height: 280px;
 }
 
-.service-panel:not(.service-panel-large):not(.service-panel-quote) {
+.service-card:not(.service-card-wide) {
   grid-column: span 3;
 }
 
-.service-panel-quote {
+.service-quote {
   grid-column: span 6;
   display: grid;
   place-items: center start;
   min-height: 150px;
-  padding: 1.7rem;
+  padding: 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
   background:
-    linear-gradient(135deg, rgba(219, 255, 0, 0.08), transparent 35%),
-    rgba(255, 255, 255, 0.03);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    linear-gradient(90deg, rgba(94, 151, 255, 0.05), rgba(109, 216, 167, 0.05));
+  box-shadow: var(--shadow);
 }
 
-.service-panel-quote p {
-  max-width: 44ch;
+.service-quote p {
+  max-width: 18ch;
   margin: 0;
-  font-family: "Syne", sans-serif;
-  font-size: clamp(1.4rem, 2.6vw, 2rem);
-  line-height: 1.12;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  line-height: 1.08;
 }
 
-.flow-grid {
+.system-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   gap: 2rem;
   align-items: start;
 }
 
-.flow-steps {
+.system-steps {
   display: grid;
   gap: 1rem;
   padding-top: 4rem;
 }
 
-.flow-step {
+.system-step {
   display: grid;
   grid-template-columns: 76px minmax(0, 1fr);
   gap: 1rem;
   padding: 1.2rem;
 }
 
-.flow-step:nth-child(2) {
-  margin-left: 2.5rem;
+.system-step:nth-child(2) {
+  margin-left: 2.4rem;
 }
 
-.flow-step:nth-child(3) {
-  margin-right: 3rem;
+.system-step:nth-child(3) {
+  margin-right: 2.8rem;
 }
 
-.flow-step:nth-child(4) {
+.system-step:nth-child(4) {
   margin-left: 1rem;
 }
 
-.flow-step span {
+.system-step span {
   display: inline-flex;
   align-items: flex-start;
   justify-content: center;
   width: 56px;
-  padding-top: 0.2rem;
-  color: var(--accent);
+  padding-top: 0.15rem;
+  color: var(--green);
   font-family: "IBM Plex Mono", monospace;
 }
 
-.offer-grid {
+.presence-layout {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr 0.8fr;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr;
   gap: 1rem;
   align-items: start;
 }
 
-.offer-main {
-  padding-right: 2rem;
+.presence-intro {
+  grid-row: span 2;
+  padding-right: 1rem;
 }
 
-.offer-card {
-  padding: 1.4rem;
+.presence-card {
+  padding: 1.3rem;
+  min-height: 180px;
 }
 
-.offer-card ul {
-  margin: 1.2rem 0 0;
-  padding-left: 1.1rem;
+.presence-card-wide {
+  grid-column: span 2;
 }
 
-.offer-card li + li {
-  margin-top: 0.55rem;
+.presence-card h3 {
+  font-size: 1.55rem;
 }
 
-.contact-grid {
+.contact-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: 2rem;
   align-items: start;
 }
 
-.contact-stack {
+.contact-actions-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
-.contact-panel {
-  padding: 1.25rem;
-  min-height: 140px;
+.contact-action {
+  display: grid;
+  gap: 0.55rem;
+  min-height: 180px;
+  padding: 1.35rem;
 }
 
-.contact-panel-wide {
+.contact-action span {
+  color: rgba(246, 245, 239, 0.7);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-action-wide {
   grid-column: span 2;
-  padding: 1.5rem;
 }
 
 .site-footer {
@@ -667,8 +717,8 @@ main,
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 700ms ease,
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 720ms ease,
+    transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.is-visible {
@@ -688,10 +738,10 @@ main,
 
 @media (max-width: 1120px) {
   .hero,
-  .services-wrap,
-  .flow-grid,
-  .offer-grid,
-  .contact-grid {
+  .services-layout,
+  .system-layout,
+  .presence-layout,
+  .contact-layout {
     grid-template-columns: 1fr;
   }
 
@@ -699,37 +749,42 @@ main,
     min-height: auto;
   }
 
-  .hero-bento {
+  .hero-stage {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      "manifesto manifesto"
-      "contact logo"
-      "categories categories"
-      "note presence";
+      "large large"
+      "logo contact"
+      "stack stack"
+      "colors colors";
   }
 
-  .services-bento {
+  .services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .service-panel-large,
-  .service-panel:not(.service-panel-quote),
-  .service-panel-quote {
+  .service-card-wide,
+  .service-card:not(.service-card-wide),
+  .service-quote {
     grid-column: auto;
   }
 
-  .flow-steps {
+  .presence-intro {
+    grid-row: auto;
+    padding-right: 0;
+  }
+
+  .presence-card-wide {
+    grid-column: auto;
+  }
+
+  .system-steps {
     padding-top: 0;
   }
 
-  .flow-step:nth-child(2),
-  .flow-step:nth-child(3),
-  .flow-step:nth-child(4) {
+  .system-step:nth-child(2),
+  .system-step:nth-child(3),
+  .system-step:nth-child(4) {
     margin: 0;
-  }
-
-  .offer-main {
-    padding-right: 0;
   }
 }
 
@@ -744,29 +799,28 @@ main,
     overflow-x: auto;
   }
 
-  .hero-inline,
-  .hero-bento,
-  .services-bento,
-  .contact-stack {
+  .hero-ledger,
+  .hero-stage,
+  .services-grid,
+  .contact-actions-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-bento {
+  .hero-stage {
     grid-template-areas:
-      "manifesto"
-      "contact"
-      "categories"
+      "large"
       "logo"
-      "presence"
-      "note";
+      "contact"
+      "stack"
+      "colors";
   }
 
-  .flow-step {
+  .system-step {
     grid-template-columns: 52px minmax(0, 1fr);
   }
 
-  .signal-track {
-    animation-duration: 20s;
+  .contact-action-wide {
+    grid-column: auto;
   }
 
   .section {
