@@ -8,49 +8,41 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     id: "01",
-    title: "Business sites",
+    title: "Design and build",
     body:
-      "Sharper homepages, cleaner offers, and contact routes that make a business feel established quickly.",
+      "A clean static website designed to make the business look more serious and easier to trust.",
     wide: true
   },
   {
     id: "02",
-    title: "Launch pages",
+    title: "Deployment",
     body:
-      "Lean sales pages with better pacing, less noise, and more pressure in the right places."
+      "The site gets deployed properly so you are not left with a design file and a headache."
   },
   {
     id: "03",
-    title: "Visual systems",
+    title: "Fast handoff",
     body:
-      "Type, spacing, motion, and component logic that stop the brand from looking rented."
+      "Once it is live, it is yours. No bloated setup, no long maintenance chain, no unnecessary complexity."
   },
   {
     id: "04",
-    title: "Growth layer",
+    title: "Static by default",
     body:
-      "Room for case studies, quote capture, testimonials, and search pages once the first version is live."
+      "Most client sites are simple, fast, and static, which keeps them lighter, cheaper, and easier to manage."
   }
 ];
 
 const steps = [
-  ["01", "Cut it down", "Strip the message to what matters, then build around that."],
-  ["02", "Build the path", "Design the reading flow before decoration starts showing off."],
-  ["03", "Sharpen the feel", "Dial in type, depth, restraint, and motion until the page feels expensive."],
-  ["04", "Open the lines", "Email, phone, and Facebook all stay one move away."]
+  ["01", "You explain it", "What the business does, who it is for, and how serious it should feel."],
+  ["02", "I design it", "The page gets structured, written, and designed to feel clear and credible."],
+  ["03", "I build it", "The design gets turned into a fast static site with the right contact flow."],
+  ["04", "I deploy it", "The site goes live and the job is done. Clean and simple."]
 ];
 
 const contactCards = [
   ["Email", "rigawebstudio@gmail.com", "mailto:rigawebstudio@gmail.com"],
   ["Phone", "+371 28 780 935", "tel:+37128780935"]
-];
-
-const signalItems = [
-  "Business websites",
-  "Landing pages",
-  "Modern UI systems",
-  "Contact-first structure",
-  "Responsive builds"
 ];
 
 function App() {
@@ -134,11 +126,12 @@ function App() {
       <main id="top">
         <section className="hero shell">
           <div className="hero-copy">
-            <p className="eyebrow">Riga web design and launch systems</p>
-            <h1>Quiet. Sharp. Ready.</h1>
+            <p className="eyebrow">Riga Web Studio builds and deploys static websites</p>
+            <h1>Websites that sell the first impression.</h1>
             <p className="hero-lede">
-              Websites for businesses that are done looking unfinished. Clean offer,
-              faster contact, harder visual standards.
+              I design the site, build it, deploy it, and hand it over. Most projects
+              are simple static websites like this one: fast, clean, and built to turn
+              a warm lead into a real enquiry.
             </p>
 
             <div className="hero-actions">
@@ -161,11 +154,11 @@ function App() {
             <div className="hero-ledger">
               <article>
                 <strong>3</strong>
-                <span>live contact lanes</span>
+                <span>ways to get in touch</span>
               </article>
               <article>
-                <strong>4</strong>
-                <span>core build modules</span>
+                <strong>1</strong>
+                <span>clear service offer</span>
               </article>
               <article>
                 <strong>100%</strong>
@@ -176,11 +169,12 @@ function App() {
 
           <div className="hero-stage">
             <article className="stage-panel stage-panel-large">
-              <p className="card-label">Studio note</p>
-              <h2>Apple calm. Samsung gloss. Google clarity.</h2>
+              <p className="card-label">What you are buying</p>
+              <h2>A good-looking static website that is ready to go live.</h2>
               <p>
-                The surface stays premium and restrained, but the structure stays useful.
-                No fake startup energy. No limp brochure layout.
+                This is not a giant agency retainer. It is a focused website service for
+                businesses that need a sharper online presence without dragging the
+                project out forever.
               </p>
             </article>
 
@@ -191,10 +185,10 @@ function App() {
             <article className="stage-panel stage-panel-stack">
               <p className="card-label">What clients get</p>
               <ul>
-                <li>Business websites</li>
-                <li>Launch pages</li>
-                <li>Sharper digital presence</li>
-                <li>Direct contact flow</li>
+                <li>Custom static website</li>
+                <li>Modern visual direction</li>
+                <li>Mobile-friendly layout</li>
+                <li>Live deployment</li>
               </ul>
             </article>
 
@@ -205,34 +199,23 @@ function App() {
             </article>
 
             <article className="stage-panel stage-panel-colors">
-              <p className="card-label">Accent logic</p>
-              <div className="accent-row">
-                <span className="accent blue" />
-                <span className="accent green" />
-                <span className="accent yellow" />
-                <span className="accent red" />
-              </div>
-              <p>Mostly monochrome. Tiny sparks of signal color. Just enough.</p>
+              <p className="card-label">Who this fits</p>
+              <p>
+                Best for businesses that need a polished brochure-style website, not a
+                complex app or giant CMS setup.
+              </p>
             </article>
-          </div>
-        </section>
-
-        <section className="signal-strip">
-          <div className="signal-track">
-            {[...signalItems, ...signalItems].map((item, index) => (
-              <span key={`${item}-${index}`}>{item}</span>
-            ))}
           </div>
         </section>
 
         <section className="section section-services">
           <div className="shell services-layout">
             <div className="section-copy reveal-section" id="services">
-              <p className="eyebrow">What lands</p>
-              <h2>Built to hold up.</h2>
+              <p className="eyebrow">The offer</p>
+              <h2>Simple service. Done properly.</h2>
               <p>
-                The work is not about piling on features. It is about making the business
-                feel more serious the second someone lands on the page.
+                The point of the page is simple: show what you get, why it is useful,
+                and why reaching out is worth it.
               </p>
             </div>
 
@@ -249,7 +232,7 @@ function App() {
               ))}
 
               <article className="service-quote reveal-section">
-                <p>Good websites do not need to shout. They need to feel inevitable.</p>
+                <p>A small business site does not need to be complicated. It needs to look right and work immediately.</p>
               </article>
             </div>
           </div>
@@ -258,8 +241,8 @@ function App() {
         <section className="section section-system">
           <div className="shell system-layout">
             <div className="system-copy reveal-section" id="system">
-              <p className="eyebrow">How it runs</p>
-              <h2>Less drag. More shape.</h2>
+              <p className="eyebrow">How it works</p>
+              <h2>Short path. Clear outcome.</h2>
             </div>
 
             <div className="system-steps">
@@ -279,11 +262,11 @@ function App() {
         <section className="section section-presence">
           <div className="shell presence-layout">
             <article className="presence-intro reveal-section" id="presence">
-              <p className="eyebrow">Public presence</p>
-              <h2>More than one door.</h2>
+              <p className="eyebrow">Reach out</p>
+              <h2>Pick the easiest option.</h2>
               <p>
-                The website becomes the clean home base. Email handles decisions. Phone
-                handles speed. Facebook stays useful for quick starts.
+                Some people prefer email. Some call. Some start on Facebook. The site
+                just makes that choice obvious.
               </p>
             </article>
 
@@ -306,11 +289,11 @@ function App() {
             </article>
 
             <article className="presence-card presence-card-wide reveal-section">
-              <p className="card-label">Public line</p>
-              <h3>Launch fast. Pay monthly. We handle everything.</h3>
+              <p className="card-label">Main pitch</p>
+              <h3>Ready-made professional websites for businesses.</h3>
               <p>
-                That line came from the public business page. The site now gives it a
-                better frame and a stronger landing surface.
+                That is the real offer here. A polished website that makes the business
+                look credible and gets people to make contact.
               </p>
             </article>
           </div>
@@ -320,10 +303,10 @@ function App() {
           <div className="shell contact-layout">
             <div className="contact-copy reveal-section" id="contact">
               <p className="eyebrow">Contact</p>
-              <h2>Pick a lane.</h2>
+              <h2>Start the conversation.</h2>
               <p>
-                Some clients write first. Some call. Some jump straight into Messenger.
-                All good. The point is to make that next step obvious.
+                If the business needs a cleaner, more professional website, send a message
+                and we can keep it simple from there.
               </p>
             </div>
 
